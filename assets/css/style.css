@@ -1096,3 +1096,29 @@ html.theme-anim .section-light, html.theme-anim .section-light *, html.theme-ani
 .theme-toggle .i-sun, :root[data-theme="dark"] .theme-toggle .i-moon { display: none; }
 :root[data-theme="dark"] .theme-toggle .i-sun { display: block; }
 @media (max-width: 1100px) { .theme-toggle { width: 44px; height: 44px; } }
+
+/* ---------- Recognition highlight (XERJ Corpus Hub) ---------- */
+.highlight { position: relative; overflow: hidden; padding: clamp(72px, 10vw, 128px) 0; }
+.highlight::before { content: ""; position: absolute; inset: auto -10% -40% auto; width: 70%; height: 90%; background: radial-gradient(closest-side, rgba(124,58,237,.28), transparent 70%); pointer-events: none; }
+.hl-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.highlight .display em { color: #A78BFA; }
+.hl-lede { margin-top: 20px; color: #C9C9C9; font-size: 1.02rem; line-height: 1.7; max-width: 56ch; }
+.hl-lede a { color: var(--green-light); text-decoration: underline; text-underline-offset: 3px; }
+.hl-stats { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line-dark); }
+.hl-stats li { padding: 16px 12px 0 0; display: flex; flex-direction: column; gap: 4px; }
+.hl-stats strong { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -.02em; color: #fff; line-height: 1.1; }
+.hl-stats span { font-size: .8rem; color: var(--grey-dark); }
+.hl-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+.highlight .btn-ghost { color: #fff; border-color: rgba(255,255,255,.28); }
+.hl-shot { margin: 0; border-radius: var(--radius); overflow: hidden; background: #fafaf8; border: 1px solid rgba(167,139,250,.45); box-shadow: 0 40px 90px -30px rgba(124,58,237,.55); transform: rotate(-1.2deg); transition: transform .6s var(--ease); }
+.hl-shot:hover { transform: rotate(0) scale(1.01); }
+.hl-shot img { display: block; width: 100%; height: auto; }
+.hl-shot figcaption { padding: 10px 16px; font-size: .74rem; letter-spacing: .06em; color: #5C5C5C; background: #fff; border-top: 1px solid #E6E6E6; }
+@media (max-width: 900px) {
+  .hl-grid { grid-template-columns: 1fr; }
+  .hl-shot { transform: none; }
+}
+@media (max-width: 480px) {
+  .hl-stats { grid-template-columns: 1fr 1fr; }
+  .hl-actions .btn { width: 100%; justify-content: center; }
+}
